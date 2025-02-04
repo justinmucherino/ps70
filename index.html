@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PS 70 Project</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        h1 {
+            font-size: 3em;
+            margin-top: 250px;
+            animation: glow 2s ease-in-out infinite alternate;
+            text-shadow: 0 0 10px #fff,
+                        0 0 20px #fff,
+                        0 0 30px #00e6e6,
+                        0 0 40px #00e6e6,
+                        0 0 50px #00e6e6;
+        }
+        p {
+            font-size: 1.5em;
+            max-width: 800px;
+        }
+        .bounce-arrow {
+            font-size: 3em;
+            animation: bounce 2s infinite;
+            margin-top: 150px;
+            color: black;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-30px);
+            }
+            60% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #fff,
+                            0 0 20px #fff,
+                            0 0 30px #00e6e6,
+                            0 0 40px #00e6e6,
+                            0 0 50px #00e6e6;
+            }
+            to {
+                text-shadow: 0 0 20px #fff,
+                            0 0 30px #00ffff,
+                            0 0 40px #00ffff,
+                            0 0 50px #00ffff,
+                            0 0 60px #00ffff;
+            }
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-top: 50px;
+        }
+
+        .grid-item {
+            height: 300px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background-color: #333;
+            transition: transform 0.3s ease;
+        }
+
+        .grid-item a {
+            text-decoration: none;
+        }
+
+        .grid-item:hover {
+            transform: scale(1.05);
+            text-decoration: none;
+        }
+
+        .grid-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: opacity 0.3s ease;
+        }
+
+        .grid-item:hover .overlay {
+            opacity: 0;
+        }
+
+        .grid-item h2 {
+            position: relative;
+            color: black;
+            transition: all 0.3s ease;
+            z-index: 2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .grid-item:hover h2 {
+            color: white;
+        }
+
+        a {
+            color: #0000EE;  /* Standard blue hyperlink color */
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #551A8B;  /* Standard visited/hover purple color */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hi! I'm Justin</h1>
+    <p>This website showcases the projects I create in <a href="https://nathanmelenbrink.github.io/ps70/index.html" style="color: blue;">PS70: Introduction to Digital Fabrication</a> here at Harvard.</p>
+    <p><a href="about.html" style="color: blue;">More about me!</a></p>
+    
+    <div class="bounce-arrow">↓</div>
+
+    <div class="grid-container">
+        <a href="week1.html" class="grid-item">
+            <div class="grid-content" style="background-image: url('./images/week1-bulb.jpg'); background-size: cover; background-position: center;">
+                <div class="overlay"></div>
+                <h2>Week 1</h2>
+            </div>
+        </a>
+        <a href="week2.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 2</h2>
+            </div>
+        </a>
+        <a href="week3.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 3</h2>
+            </div>
+        </a>
+        <a href="week4.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 4</h2>
+            </div>
+        </a>
+        <a href="week5.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 5</h2>
+            </div>
+        </a>
+        <a href="week6.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 6</h2>
+            </div>
+        </a>
+        <a href="week7.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 7</h2>
+            </div>
+        </a>
+        <a href="week8.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 8</h2>
+            </div>
+        </a>
+        <a href="week9.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 9</h2>
+            </div>
+        </a>
+        <a href="week10.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 10</h2>
+            </div>
+        </a>
+        <a href="week11.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 11</h2>
+            </div>
+        </a>
+        <a href="week12.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 12</h2>
+            </div>
+        </a>
+        <a href="week13.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Week 13</h2>
+            </div>
+        </a>
+        <a href="final.html" class="grid-item">
+            <div class="grid-content">
+                <div class="overlay"></div>
+                <h2>Final Project</h2>
+            </div>
+        </a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

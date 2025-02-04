@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - PS 70 Project</title>
+    <style>
+        body {
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 100px;
+        }
+        p {
+            font-size: 1.2em;
+            max-width: 800px;
+            line-height: 2.0;
+            margin: 15px 20px;
+        }
+        .back-link {
+            margin-top: 20px;
+        }
+        .back-link a {
+            color: #0000ff;
+        }
+    </style>
+</head>
+<body style="background-color: #ffffff !important; color: #000000 !important;">
+    <h1>Welcome!</h1>
+    <button onclick="toggleAudio()" style="margin: 20px; padding: 10px 20px; font-size: 1.2em; cursor: pointer;">Click Me!</button>
+    <audio id="backgroundMusic" loop>
+        <source src="./assets/background-music.mp4" type="audio/mp4">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <p>Hi, I'm Justin Mucherino, a sophomore at Harvard College. Up until a few months ago, I was chronically pre-med. But then I had a breakthrough, and I realized I don't hate myself that much. So, naturally, I pivoted to an equally masochistic path, engineering and philosophy, and, if the vibe is right, potentially law school.</p>
+
+    <img src="./assets/image1.jpg" alt="Description of image" style="max-width: 600px; height: auto; margin: 20px 0; border-radius: 8px;">
+    <p style="font-size: 0.8em; font-style: italic; margin-top: -10px; color: #666;">Me and my brother in England this summer on an unauthorized side quest</p>
+
+    <p>I hail from Connecticut but have also spent a lot of time in San Diego, which means my personality is mostly SoCal, but my New England roots sneak through the cracks from time to time. I'm an avid surfer and deeply miss rolling out of bed and straight into the waves. If you've never surfed, I highly recommend it—there's truly nothing like catching your first wave and even less like dropping in on a double-over header and face-planting into a reef.</p>
+
+    <img src="./assets/image2.jpg" alt="Description of image" style="max-width: 600px; height: auto; margin: 20px 0; border-radius: 8px;">
+    <p style="font-size: 0.8em; font-style: italic; margin-top: -10px; color: #666;">Daily Coronado vibes</p>
+
+    <p>I also have two dogs, Knox and River. Knox came first, and then we thought, hey, he needs a friend!—turns out, he did not. When we brought River home, Knox immediately fell on her, and their relationship has been on thin ice ever since. It's not his fault—he lives life at full throttle, which is honestly a mood.</p>
+
+    <img src="./assets/image3.jpg" alt="Description of image" style="max-width: 600px; height: auto; margin: 20px 0; border-radius: 8px;">
+    <p style="font-size: 0.8em; font-style: italic; margin-top: -10px; color: #666;">In this dramatic reenactment of betrayal, witness River launching an unprovoked assault on Knox for the heinous crime of… existing. Meanwhile, Knox files an urgent appeal for immediate rescue.</p>
+
+    <p>Another core personality trait? Burritos. I am a hardcore burrito connoisseur. Right now, I'm on a noble and, so far, disappointing quest to find the best burrito in my general vicinity. Look, I don't care if your sign says "New England's Best Burritos"—I know the truth, and the truth is that I've had better gas station burritos in California. I digress.</p>
+
+    <img src="./assets/image4.jpg" alt="Description of image" style="max-width: 600px; height: auto; margin: 20px 0; border-radius: 8px;">
+    <p style="font-size: 0.8em; font-style: italic; margin-top: -10px; color: #666;">Behold! A divine creation sent from the heavens.</p>
+
+    <p>Anyway, I'm pumped for PS 70, and I'm excited to make some cool things!</p>
+    <p class="back-link"><a href="index.html" style="color: blue;">← Back to Home</a></p>
+    <script src="script.js"></script>
+    <script>
+        function toggleAudio() {
+            var audio = document.getElementById("backgroundMusic");
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        }
+    </script>
+</body>
+</html> 
