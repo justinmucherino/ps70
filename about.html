@@ -38,11 +38,6 @@
 </head>
 <body style="background-color: #ffffff !important; color: #000000 !important;">
     <h1>Welcome!</h1>
-    <button onclick="toggleAudio()" style="margin: 20px; padding: 10px 20px; font-size: 1.2em; cursor: pointer;">Click Me!</button>
-    <audio id="backgroundMusic" loop>
-        <source src="./assets/background-music.mp4" type="audio/mp4">
-        Your browser does not support the audio element.
-    </audio>
     
     <p>Hi, I'm Justin Mucherino, a sophomore at Harvard College. Up until a few months ago, I was chronically pre-med. But then I had a breakthrough, and I realized I don't hate myself that much. So, naturally, I pivoted to an equally masochistic path, engineering and philosophy, and, if the vibe is right, potentially law school.</p>
 
@@ -67,16 +62,5 @@
     <p>Anyway, I'm pumped for PS 70, and I'm excited to make some cool things!</p>
     <p class="back-link"><a href="index.html" style="color: blue;">← Back to Home</a></p>
     <script src="script.js"></script>
-    <script>
-        function toggleAudio() {
-            var audio = document.getElementById("backgroundMusic");
-            if (audio.paused) {
-                audio.play();
-            } else {
-                audio.pause();
-                audio.currentTime = 0;
-            }
-        }
-    </script>
 </body>
 </html> 
