@@ -47,7 +47,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Week 3: Kinetic Sculpture - My dog Knox<</h1>
+        <h1>Week 3: Kinetic Sculpture - My dog Knox</h1>
         
 
         <h3 style="font-size: 1.5em; font-weight: bold;">Initial Idea & Pivot</h3>
@@ -64,36 +64,26 @@
         <img src="./images/knox1.jpg" alt="Knox tracing and cutting" style="display: block; margin: 0 auto; width: 50%;">
 
         <h4 style="font-weight: bold;">Preparing the Base</h4>
-        <ul>
-            <li>Next, I cut a baseboard to the desired dimensions.</li>
-            <li>I also cut a smaller wooden block that would later hold the motor.</li>
-        </ul>
+        <p>Next, I cut a baseboard to the desired dimensions.</p>
+        <p>I also cut a smaller wooden block that would later hold the motor.</p>
 
         <h4 style="font-weight: bold;">Creating a Bracket & Mounting the Motor</h4>
-        <ul>
-            <li>I repurposed a wire clamp by cutting it with a hacksaw to form a makeshift bracket.</li>
-        </ul>
+        <p>I repurposed a wire clamp by cutting it with a hacksaw to form a makeshift bracket.</p>
 
         <img src="./images/knox2.jpg" alt="Knox bracket and motor mounting" style="display: block; margin: 0 auto; width: 50%;">
 
-        <ul>
-            <li>With two wood screws, I mounted an L9110 Motor Driver (using my new bracket) to the smaller wooden block.</li>
-            <li>I then used two larger screws to fasten the entire motor assembly to the baseboard. This made sure everything stayed secure while the motor was running.</li>
-        </ul>
+        <p>With two wood screws, I mounted an L9110 Motor Driver (using my new bracket) to the smaller wooden block.</p>
+        <p>I then used two larger screws to fasten the entire motor assembly to the baseboard. This made sure everything stayed secure while the motor was running.</p>
 
         <h4 style="font-weight: bold;">Drilling & Gear Setup</h4>
-        <ul>
-            <li>Using calipers, I measured and marked the hole for the center of Knox's body. Then I used the drill press for a clean, precise hole.</li>
-            <li>I inserted a bearing on an appropriately sized screw, slid Knox's tail onto it, and glued a gear to the tail so it would be fixed in place.</li>
-            <li>Next, I looped a belt over both the tail gear and the motor gear.</li>
-            <li>Finally, I added a washer and a bolt on the front to hold the assembly securely.</li>
-        </ul>
+        <p>Using calipers, I measured and marked the hole for the center of Knox's body. Then I used the drill press for a clean, precise hole.</p>
+        <p>I inserted a bearing on an appropriately sized screw, slid Knox's tail onto it, and glued a gear to the tail so it would be fixed in place.</p>
+        <p>Next, I looped a belt over both the tail gear and the motor gear.</p>
+        <p>Finally, I added a washer and a bolt on the front to hold the assembly securely.</p>
 
         <h4 style="font-weight: bold;">Securing the Sculpture</h4>
-        <ul>
-            <li>I repurposed a metal L-bracket by sawing it in half and reshaping it.</li>
-            <li>Then I used four wood screws to attach these new brackets to Knox's wooden body and to the baseboard. Now, Knox is solidly fixed in position for the motor's movement.</li>
-        </ul>
+        <p>I repurposed a metal L-bracket by sawing it in half and reshaping it.</p>
+        <p>Then I used four wood screws to attach these new brackets to Knox's wooden body and to the baseboard. Now, Knox is solidly fixed in position for the motor's movement.</p>
 
         <img src="./images/knox3.jpg" alt="Knox secured sculpture" style="display: block; margin: 0 auto; width: 50%;">
 
@@ -104,10 +94,8 @@
         <p>I connected the motor driver and the motor to an ESP32 controller using a breadboard, following the principles we covered in class.</p>
 
         <h4 style="font-weight: bold;">Programming</h4>
-        <ul>
-            <li>Using the basic sample code from our tutorials, I uploaded a sketch to the ESP32 to drive the motor.</li>
-            <li>The following is the code I used to create the basic functionality.</li>
-        </ul>
+        <p>Using the basic sample code from our tutorials, I uploaded a sketch to the ESP32 to drive the motor.</p>
+        <p>The following is the code I used to create the basic functionality.</p>
 
         <pre><code>const int A1A = 12;  // define pin 12 for A-1A 
 const int A1B = 14;  // define pin 14 for A-1B 
@@ -140,9 +128,7 @@ void loop() {
     delay(1000);
 }</code></pre>
 
-        <ul>
-            <li>After a bit of tinkering, Knox's tail wagged up and down—just as I'd envisioned. My next step is to refine the code to make his tail move a bit faster (or play around with different movement patterns).</li>
-        </ul>
+        <p>After a bit of tinkering, Knox's tail wagged up and down—just as I'd envisioned. My next step is to refine the code to make his tail move a bit faster (or play around with different movement patterns).</p>
 
         <video width="50%" controls style="display: block; margin: 0 auto;">
             <source src="./video/knox1.mp4" type="video/mp4">
