@@ -49,11 +49,111 @@
     <div class="container">
         <h1>Week 3</h1>
         
-        <!-- Add your content here -->
-        <p>This week's content will go here...</p>
+        <h2 style="font-size: 2em; font-weight: bold;">Week 3: Kinetic Sculpture - My dog Knox</h2>
 
-        <!-- Image placeholder -->
-        <!-- <img src="images/week3/your-image.jpg" alt="Week 3 Project"> -->
+        <h3 style="font-size: 1.5em; font-weight: bold;">Initial Idea & Pivot</h3>
+        <p>Originally, I planned to create a windmill-inspired kinetic sculpture. However, when the laser printer went down and I wasn't sure how long it would be out of service—and with our assignment deadline looming. This ended up being a fantastic turn of events because it required me to rely on hand tools and table saw skills from the previous week. In the end, I had much more fun building everything manually.</p>
+
+        <h3 style="font-size: 1.5em; font-weight: bold;">Designing Knox</h3>
+        <p>I decided to make a kinetic sculpture of my dog, Knox. My goal was to have his tail wag, driven by a small motor.</p>
+
+        <h4 style="font-weight: bold;">Tracing and Cutting</h4>
+        <p>First, I traced a photo of Knox onto paper and cut out the outline.<br>
+        I transferred both the body and tail shapes separately onto a piece of wood.<br>
+        Using the table saw, I carefully cut out each piece. This was surprisingly precise, and I managed to avoid mistakes—which was super exciting!</p>
+
+        <img src="./images/knox1.jpg" alt="Knox tracing and cutting" style="display: block; margin: 0 auto;">
+
+        <h4 style="font-weight: bold;">Preparing the Base</h4>
+        <ul>
+            <li>Next, I cut a baseboard to the desired dimensions.</li>
+            <li>I also cut a smaller wooden block that would later hold the motor.</li>
+        </ul>
+
+        <h4 style="font-weight: bold;">Creating a Bracket & Mounting the Motor</h4>
+        <ul>
+            <li>I repurposed a wire clamp by cutting it with a hacksaw to form a makeshift bracket.</li>
+        </ul>
+
+        <img src="./images/knox2.jpg" alt="Knox bracket and motor mounting" style="display: block; margin: 0 auto;">
+
+        <ul>
+            <li>With two wood screws, I mounted an L9110 Motor Driver (using my new bracket) to the smaller wooden block.</li>
+            <li>I then used two larger screws to fasten the entire motor assembly to the baseboard. This made sure everything stayed secure while the motor was running.</li>
+        </ul>
+
+        <h4 style="font-weight: bold;">Drilling & Gear Setup</h4>
+        <ul>
+            <li>Using calipers, I measured and marked the hole for the center of Knox's body. Then I used the drill press for a clean, precise hole.</li>
+            <li>I inserted a bearing on an appropriately sized screw, slid Knox's tail onto it, and glued a gear to the tail so it would be fixed in place.</li>
+            <li>Next, I looped a belt over both the tail gear and the motor gear.</li>
+            <li>Finally, I added a washer and a bolt on the front to hold the assembly securely.</li>
+        </ul>
+
+        <h4 style="font-weight: bold;">Securing the Sculpture</h4>
+        <ul>
+            <li>I repurposed a metal L-bracket by sawing it in half and reshaping it.</li>
+            <li>Then I used four wood screws to attach these new brackets to Knox's wooden body and to the baseboard. Now, Knox is solidly fixed in position for the motor's movement.</li>
+        </ul>
+
+        <img src="./images/knox3.jpg" alt="Knox secured sculpture" style="display: block; margin: 0 auto;">
+
+        <h3 style="font-size: 1.5em; font-weight: bold;">Electrical & Programming</h3>
+        <p>With the mechanical side complete, I moved on to connecting the motor and programming an ESP32 microcontroller.</p>
+
+        <h4 style="font-weight: bold;">Wiring</h4>
+        <p>I connected the motor driver and the motor to an ESP32 controller using a breadboard, following the principles we covered in class.</p>
+
+        <h4 style="font-weight: bold;">Programming</h4>
+        <ul>
+            <li>Using the basic sample code from our tutorials, I uploaded a sketch to the ESP32 to drive the motor.</li>
+            <li>The following is the code I used to create the basic functionality.</li>
+        </ul>
+
+        <pre><code>const int A1A = 12;  // define pin 12 for A-1A 
+const int A1B = 14;  // define pin 14 for A-1B 
+
+void setup() {
+    pinMode(A1A, OUTPUT);     // specify these pins as outputs
+    pinMode(A1B, OUTPUT);
+    digitalWrite(A1A, LOW);   // start with the motors off 
+    digitalWrite(A1B, LOW);
+}
+
+void loop() {
+    // start the motor 
+    digitalWrite(A1A, HIGH);   
+    digitalWrite(A1B, LOW);
+    delay(600);              // allow the motor to run for 4 seconds
+
+    // stop the motor
+    digitalWrite(A1A, LOW);   // setting both pins LOW stops the motor 
+    digitalWrite(A1B, LOW);   // redundant, but doesn't hurt 
+    delay(1000);              // keep the motor off for 2 seconds
+
+    // start the motor 
+    digitalWrite(A1A, LOW);   
+    digitalWrite(A1B, HIGH);
+    delay(600);  
+
+    digitalWrite(A1A, LOW);   // setting both pins LOW stops the motor 
+    digitalWrite(A1B, LOW);   // redundant, but doesn't hurt 
+    delay(1000);
+}</code></pre>
+
+        <ul>
+            <li>After a bit of tinkering, Knox's tail wagged up and down—just as I'd envisioned. My next step is to refine the code to make his tail move a bit faster (or play around with different movement patterns).</li>
+        </ul>
+
+        <video width="100%" controls style="display: block; margin: 0 auto;">
+            <source src="./video/knox1.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <h3 style="font-size: 1.5em; font-weight: bold;">Looking Ahead</h3>
+        <p>I'm thrilled with how my Week 3 project turned out. The combination of woodworking, repurposed materials, and programming made for a rewarding build. Next, I plan to refine the speed of Knox's wagging tail and potentially explore more interactive controls (like sensors or Bluetooth control) to make him even more lively.</p>
+
+        <p>Overall, this pivot pushed me to use a wider range of fabrication skills, and it turned what could have been a frantic scramble into a project I'm truly proud of. Stay tuned for more updates!</p>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
