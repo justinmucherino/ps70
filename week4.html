@@ -55,11 +55,9 @@
 
         <h2 style="font-weight: bold;">Sculpture Redesign</h2>
         <p><strong>Structural Improvements</strong></p>
-        <ul>
-            <li>I removed Knox's body from the baseboard to drill new holes for the LED eyes using the drill press.</li>
-            <li>I bored out the existing center hole to fit a more appropriately sized bearing for the tail mechanism, which reduced friction issues.</li>
-            <li>I also added a lock screw to ensure the bearing assembly stayed secure and didn't come undone with prolonged motor use.</li>
-        </ul>
+        <p>I removed Knox's body from the baseboard to drill new holes for the LED eyes using the drill press.</p>
+        <p>I bored out the existing center hole to fit a more appropriately sized bearing for the tail mechanism, which reduced friction issues.</p>
+        <p>I also added a lock screw to ensure the bearing assembly stayed secure and didn't come undone with prolonged motor use.</p>
 
         <p><strong>LED Installation</strong></p>
         <p>After preparing the holes, I measured and cut wires for the LEDs (two red, two black), then soldered them carefully using the station's ventilation and a magnifying clamp.<br>
@@ -71,10 +69,8 @@
         <p>Next, I tackled the electronics to accommodate the new LEDs for Knox's eyes and a potentiometer for controlling the wag speed. That's when things got interesting:</p>
 
         <p><strong>Initial Challenges</strong></p>
-        <ul>
-            <li>I ran into short-circuit issues. The dev board didn't provide a dedicated 3V pin, so I attempted a "bootleg" 3V output.</li>
-            <li>If the potentiometer wasn't turned all the way to max, the motor driver drew too much current from the dev board, causing it to shut down.</li>
-        </ul>
+        <p>I ran into short-circuit issues. The dev board didn't provide a dedicated 3V pin, so I attempted a "bootleg" 3V output.</p>
+        <p>If the potentiometer wasn't turned all the way to max, the motor driver drew too much current from the dev board, causing it to shut down.</p>
 
         <img src="./images/week4wiring.jpg" alt="Wiring Setup" style="width: 50%; margin: 20px auto;">
 
@@ -88,10 +84,8 @@
         <p>Once the mechanical and wiring side was sorted, I moved on to rewriting the code from scratch for a more efficient approach.</p>
 
         <p><strong>Pin Assignments</strong></p>
-        <ul>
-            <li>Motor pins: control the tail wag (direction and speed).</li>
-            <li>LED pins: blink the "eyes" at a set interval.</li>
-        </ul>
+        <p>Motor pins: control the tail wag (direction and speed).</p>
+        <p>LED pins: blink the "eyes" at a set interval.</p>
 
         <pre><code>
 const int motorA1A = 14;
