@@ -49,11 +49,78 @@
     <div class="container">
         <h1>Week 4</h1>
         
-        <!-- Add your content here -->
-        <p>This week's content will go here...</p>
+        <h1 style="font-weight: bold;">Week 4: Kinetic Sculpture With Arduino</h1>
 
-        <!-- Image placeholder -->
-        <!-- <img src="images/week4/your-image.jpg" alt="Week 4 Project"> -->
+        <h2 style="font-weight: bold;">Overview</h2>
+        <p>This week, we were tasked with programing a microcontroller to do something. I chose to build on last week's sculpture of my dog Knox by giving him blinking LED eyes and pairing that with a speed control for the tail via a potentiometer. While the initial concept evolved over time, I ended up with a more refined piece and a deeper understanding of coding and electronics.</p>
+
+        <h2 style="font-weight: bold;">Sculpture Redesign</h2>
+        <p><strong>Structural Improvements</strong></p>
+        <ul>
+            <li>I removed Knox's body from the baseboard to drill new holes for the LED eyes using the drill press.</li>
+            <li>I bored out the existing center hole to fit a more appropriately sized bearing for the tail mechanism, which reduced friction issues.</li>
+            <li>I also added a lock screw to ensure the bearing assembly stayed secure and didn't come undone with prolonged motor use.</li>
+        </ul>
+
+        <p><strong>LED Installation</strong></p>
+        <p>After preparing the holes, I measured and cut wires for the LEDs (two red, two black), then soldered them carefully using the station's ventilation and a magnifying clamp.<br>
+        I secured each LED in its new hole with a small amount of glue.</p>
+
+        <img src="./images/week4solder.jpg" alt="Soldering Process">
+
+        <h2 style="font-weight: bold;">Wiring the Sculpture</h2>
+        <p>Next, I tackled the electronics to accommodate the new LEDs for Knox's eyes and a potentiometer for controlling the wag speed. That's when things got interesting:</p>
+
+        <p><strong>Initial Challenges</strong></p>
+        <ul>
+            <li>I ran into short-circuit issues. The dev board didn't provide a dedicated 3V pin, so I attempted a "bootleg" 3V output.</li>
+            <li>If the potentiometer wasn't turned all the way to max, the motor driver drew too much current from the dev board, causing it to shut down.</li>
+        </ul>
+
+        <img src="./images/week4wiring.jpg" alt="Wiring Setup">
+
+        <p><strong>Pivoting the Plan</strong></p>
+        <p>Given the time constraints and complexity, I removed the potentiometer from the setup and decided to control the speed purely via code.<br>
+        While I still plan to revisit a hardware-based speed control in the future, removing the potentiometer solved the power-draw issue.</p>
+
+        <img src="./images/week4diagram.jpg" alt="Wiring Diagram">
+
+        <h2 style="font-weight: bold;">Coding & Control</h2>
+        <p>Once the mechanical and wiring side was sorted, I moved on to rewriting the code from scratch for a more efficient approach.</p>
+
+        <p><strong>Pin Assignments</strong></p>
+        <ul>
+            <li>Motor pins: control the tail wag (direction and speed).</li>
+            <li>LED pins: blink the "eyes" at a set interval.</li>
+        </ul>
+
+        <pre><code>
+const int motorA1A = 14;
+// ... [First code block content] ...
+}
+        </code></pre>
+
+        <p><strong>From Delay to Millis</strong></p>
+        <p>I started out with basic code that used delay functions, making the tail move one way for 250 ms, then switch direction for another 250 ms, while blinking the LEDs every 125 ms.<br>
+        This approach worked but blocked other operations whenever a delay was in progress.</p>
+
+        <p><strong>Timing with Millis</strong></p>
+        <p>To improve performance, I replaced all delays with a timing system based on millis.<br>
+        This system essentially acts like a stopwatch, it keeps track of when certain intervals pass, and triggers the change only when enough time has elapsed.<br>
+        Now, the controller can perform other tasks simultaneously instead of pausing the entire program during each action.</p>
+
+        <pre><code>
+const int motorA1A = 14;
+// ... [Second code block content] ...
+}
+        </code></pre>
+
+        <p>The end result is that Knox's eyes blink in sync with the wagging tail—every eighth of a second for the eyes and every quarter second for the tail—without the code blocking or freezing between actions.</p>
+
+        <video width="100%" controls>
+            <source src="./video/week4knox.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
