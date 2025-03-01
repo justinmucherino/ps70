@@ -65,7 +65,7 @@
         <p>After preparing the holes, I measured and cut wires for the LEDs (two red, two black), then soldered them carefully using the station's ventilation and a magnifying clamp.<br>
         I secured each LED in its new hole with a small amount of glue.</p>
 
-        <img src="./images/week4solder.jpg" alt="Soldering Process">
+        <img src="./images/week4solder.jpg" alt="Soldering Process" style="width: 50%; margin: 20px auto;">
 
         <h2 style="font-weight: bold;">Wiring the Sculpture</h2>
         <p>Next, I tackled the electronics to accommodate the new LEDs for Knox's eyes and a potentiometer for controlling the wag speed. That's when things got interesting:</p>
@@ -76,13 +76,13 @@
             <li>If the potentiometer wasn't turned all the way to max, the motor driver drew too much current from the dev board, causing it to shut down.</li>
         </ul>
 
-        <img src="./images/week4wiring.jpg" alt="Wiring Setup">
+        <img src="./images/week4wiring.jpg" alt="Wiring Setup" style="width: 50%; margin: 20px auto;">
 
         <p><strong>Pivoting the Plan</strong></p>
         <p>Given the time constraints and complexity, I removed the potentiometer from the setup and decided to control the speed purely via code.<br>
         While I still plan to revisit a hardware-based speed control in the future, removing the potentiometer solved the power-draw issue.</p>
 
-        <img src="./images/week4diagram.jpg" alt="Wiring Diagram">
+        <img src="./images/week4diagram.jpg" alt="Wiring Diagram" style="width: 50%; margin: 20px auto;">
 
         <h2 style="font-weight: bold;">Coding & Control</h2>
         <p>Once the mechanical and wiring side was sorted, I moved on to rewriting the code from scratch for a more efficient approach.</p>
@@ -95,7 +95,41 @@
 
         <pre><code>
 const int motorA1A = 14;
-// ... [First code block content] ...
+const int motorA1B = 12;
+const int leftEyeLED = 26;
+const int rightEyeLED = 25;
+const int fake3V3Pin = 35;
+const int potPin = 34;
+
+void setup() {
+  pinMode(potPin, INPUT);
+  pinMode(fake3V3Pin, OUTPUT);
+  pinMode(rightEyeLED, OUTPUT);
+  pinMode(leftEyeLED, OUTPUT);
+  // turn on fake 3v3
+  digitalWrite(fake3V3Pin, HIGH);
+  // setup motor pins
+  pinMode(motorA1B, OUTPUT);
+  pinMode(motorA1A, OUTPUT);
+  ledcAttach(motorA1A, 5000, 8);
+  ledcAttach(motorA1B, 5000, 8);
+  // make sure motor pins are set to 0 volts
+  ledcWrite(motorA1A, 0);
+  ledcWrite(motorA1B, 0);
+  Serial.begin(115200);
+}
+
+void loop() {
+  ledcWrite(motorA1A, 255);
+  ledcWrite(motorA1B, 0);
+  digitalWrite(leftEyeLED, HIGH);
+  digitalWrite(rightEyeLED, HIGH);
+  delay(1000);
+  digitalWrite(leftEyeLED, LOW);
+  digitalWrite(rightEyeLED, LOW);
+  ledcWrite(motorA1A, 0);
+  ledcWrite(motorA1B, 255);
+  delay(1000);
 }
         </code></pre>
 
@@ -110,13 +144,71 @@ const int motorA1A = 14;
 
         <pre><code>
 const int motorA1A = 14;
-// ... [Second code block content] ...
+const int motorA1B = 12;
+const int leftEyeLED = 26;
+const int rightEyeLED = 25;
+const int fake3V3Pin = 35;
+const int potPin = 34;
+
+// Timing variables
+unsigned long currentMillis;
+unsigned long previousLEDMillis = 0;
+unsigned long previousMotorMillis = 0;
+const long LED_INTERVAL = 125;    // LED blink interval (ms)
+const long MOTOR_INTERVAL = 250;  // Motor direction change interval (ms)
+
+// State variables
+bool ledState = false;
+bool motorForward = true;
+
+void setup() {
+  pinMode(potPin, INPUT);
+  pinMode(fake3V3Pin, OUTPUT);
+  pinMode(rightEyeLED, OUTPUT);
+  pinMode(leftEyeLED, OUTPUT);
+  // turn on fake 3v3
+  digitalWrite(fake3V3Pin, HIGH);
+  // setup motor pins
+  pinMode(motorA1B, OUTPUT);
+  pinMode(motorA1A, OUTPUT);
+  ledcAttach(motorA1A, 5000, 8);
+  ledcAttach(motorA1B, 5000, 8);
+  // make sure motor pins are set to 0 volts
+  ledcWrite(motorA1A, 0);
+  ledcWrite(motorA1B, 0);
+  Serial.begin(115200);
+}
+
+void loop() {
+  currentMillis = millis();
+
+  // LED blinking logic
+  if (currentMillis - previousLEDMillis >= LED_INTERVAL) {
+    previousLEDMillis = currentMillis;
+    ledState = !ledState;  // Toggle LED state
+    digitalWrite(leftEyeLED, ledState ? HIGH : LOW);
+    digitalWrite(rightEyeLED, ledState ? HIGH : LOW);
+  }
+
+  // Motor direction change logic
+  if (currentMillis - previousMotorMillis >= MOTOR_INTERVAL) {
+    previousMotorMillis = currentMillis;
+    motorForward = !motorForward;  // Toggle motor direction
+    
+    if (motorForward) {
+      ledcWrite(motorA1A, 255);
+      ledcWrite(motorA1B, 0);
+    } else {
+      ledcWrite(motorA1A, 0);
+      ledcWrite(motorA1B, 255);
+    }
+  }
 }
         </code></pre>
 
         <p>The end result is that Knox's eyes blink in sync with the wagging tail—every eighth of a second for the eyes and every quarter second for the tail—without the code blocking or freezing between actions.</p>
 
-        <video width="100%" controls>
+        <video width="50%" controls style="display: block; margin: 20px auto;">
             <source src="./video/week4knox.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
