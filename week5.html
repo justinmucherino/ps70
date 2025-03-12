@@ -49,11 +49,84 @@
     <div class="container">
         <h1>Week 5</h1>
         
-        <!-- Add your content here -->
-        <p>This week's content will go here...</p>
+        <h2 style="font-size: 2em; font-weight: bold; text-align: center;">Week 5: 3D Design, Printing & Scanning</h2>
 
-        <!-- Image placeholder -->
-        <!-- <img src="images/week5/your-image.jpg" alt="Week 5 Project"> -->
+        <h3 style="font-size: 1.5em; font-weight: bold;">3D-Print "Ball in a Cage"</h3>
+
+        <div style="width: 100%; height: 500px;">
+            <iframe id="vs_iframe" src="https://www.viewstl.com/?embedded&color=pink&bgcolor=blue" style="border:0;margin:0;width:100%;height:100%;"></iframe>
+        </div>
+
+        <h4 style="font-weight: bold;">Concept & Reasoning</h4>
+        <p>For this week's assignment, we had to 3D-print an object that couldn't easily be manufactured through traditional means. I chose to create a "ball in a cage"—a single-piece print featuring a spherical ball trapped inside a surrounding structure.</p>
+
+        <p><strong>Additive Manufacturing Advantage:</strong> This design is nearly impossible to replicate with subtractive methods because the ball must be printed inside the cage without any separate assembly.</p>
+        <p><strong>Desk Décor:</strong> It also makes for a fun desk toy—gently rattling the ball around makes it clear how the design was printed in one shot.</p>
+
+        <img src="./images/week5print.jpg" alt="3D Printed Ball in Cage">
+
+        <h3 style="font-size: 1.5em; font-weight: bold;">3D Scanning with Photogrammetry</h3>
+
+        <h4 style="font-weight: bold;">Initial Plan (LIDAR)</h4>
+        <p>I initially hoped to use Polycam's LIDAR feature to scan an object, but encountered issues—my scans often came out "mashed up." Rather than lose time troubleshooting, I switched to photogrammetry.</p>
+
+        <h4 style="font-weight: bold;">Photogrammetry Process</h4>
+        <p><strong>Capturing Images:</strong> Photogrammetry involves taking many photos of the object from multiple angles. I experimented with scanning a small USB duck. After a few tries, I realized how essential it is to keep both the camera and the duck as still as possible.</p>
+
+        <p><strong>Data Cleanup:</strong> Once the photos were processed by Polycam, I imported the resulting 3D model into Meshmixer to fill gaps and smooth any rough areas. The final result was a neat, textured model of the duck, ready for viewing or further editing.</p>
+
+        <img src="./images/week5duck.jpg" alt="3D Scanned Duck">
+
+        <h3 style="font-size: 1.5em; font-weight: bold;">Final Project Update</h3>
+        <p>While still refining all the details, here's the current plan for my final project: a "punishment" lockbox that sets off an alarm when its lid is opened—without using an actual physical lock mechanism.</p>
+
+        <h3 style="font-size: 1.5em; font-weight: bold;">Punishment Lockbox Project Plan</h3>
+
+        <h4 style="font-weight: bold;">Bill of Materials</h4>
+        <ul>
+            <li>ESP 32 Dev Board (or a similar microcontroller)</li>
+            <li>Reed Switch & Matching Magnet (or a small limit switch)</li>
+            <li>Piezo Buzzer (5V, either passive or active)</li>
+            <li>5V Power Supply (USB charger or DC adapter)</li>
+            <li>Assorted Wires & Connectors (for internal wiring)</li>
+            <li>3D Printed Enclosure (lid + base with standoffs)</li>
+            <li>Misc. Hardware (screws, adhesives, etc.)</li>
+        </ul>
+
+        <h4 style="font-weight: bold;">Week-by-Week Roadmap</h4>
+
+        <h5 style="font-weight: bold;">Week 1:</h5>
+        <ul>
+            <li>Acquire all necessary parts (microcontroller, reed switch, buzzer, etc.).</li>
+            <li>Familiarize myself with basic electronics—specifically how to read a digital input and play tones on a buzzer.</li>
+            <li>Sketch the initial enclosure design (approximate dimensions, hinge location, reed switch placement).</li>
+            <li>Decide on cable pass-through placement (so I can charge my phone while it's inside).</li>
+        </ul>
+
+        <h5 style="font-weight: bold;">Week 2:</h5>
+        <ul>
+            <li>Set up a breadboard prototype with the microcontroller, reed switch, and buzzer.</li>
+            <li>Write simple code to detect the switch state and sound the buzzer. Experiment with different alarm tones or patterns.</li>
+            <li>Refine the enclosure design—nailing down final dimensions, magnet placement, and any internal support structures.</li>
+        </ul>
+
+        <h5 style="font-weight: bold;">Week 3:</h5>
+        <ul>
+            <li>3D-print the enclosure (lid and base).</li>
+            <li>Assemble and test the box, checking hinge alignment and ensuring there's enough space for all electronics.</li>
+            <li>Mount the microcontroller and wiring; verify that the reed switch accurately detects when the lid opens.</li>
+            <li>Fine-tune the Arduino code (add a delay before the alarm or a silent mode toggle if desired).</li>
+        </ul>
+
+        <h5 style="font-weight: bold;">Week 4:</h5>
+        <ul>
+            <li>Testing & Optimization: Place my phone inside to simulate real-world use and verify the alarm triggers reliably.</li>
+            <li>Address any mechanical misalignments or clearance issues—reprint or modify parts if needed.</li>
+            <li>Tidy up wiring and finalize code. If time permits, consider extra features (e.g., a small display or time-delay lock).</li>
+        </ul>
+
+        <h4 style="font-weight: bold;">Closing Thoughts</h4>
+        <p>This week's foray into 3D design, printing, and scanning highlighted the strengths of additive manufacturing and digital modeling. I'm also excited to see how these skills will translate to my final "punishment" lockbox project—particularly in designing a functional yet snug enclosure for the electronics. Stay tuned as I continue iterating and bring this idea to life!</p>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
