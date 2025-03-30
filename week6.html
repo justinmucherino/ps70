@@ -27,7 +27,7 @@
         }
 
         img {
-            max-width: 100%;
+            max-width: 50%;
             height: auto;
             display: block;
             margin: 20px auto;
@@ -65,8 +65,43 @@
             background-color: #45a049;
         }
 
+        .download-button.pink {
+            background-color: #FF69B4;  /* Pink color */
+        }
+
+        .download-button.pink:hover {
+            background-color: #FF1493;  /* Darker pink on hover */
+        }
+
+        .download-button.rainbow {
+            background: linear-gradient(
+                90deg,
+                #ff0000,
+                #ff8000,
+                #ffff00,
+                #00ff00,
+                #00ffff,
+                #0000ff,
+                #8000ff
+            );
+            background-size: 200% auto;
+            animation: rainbow 3s linear infinite;
+            color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        @keyframes rainbow {
+            0% { background-position: 0% center; }
+            100% { background-position: 200% center; }
+        }
+
+        .download-button.rainbow:hover {
+            background-size: 200% auto;
+            animation: rainbow 1s linear infinite;
+        }
+
         video {
-            max-width: 100%;
+            max-width: 50%;
             height: auto;
             display: block;
             margin: 20px auto;
@@ -89,7 +124,7 @@
 
         <p>One of the biggest improvements I made was ditching the use of delays and instead implementing a non-blocking approach using millis(). This change allowed the sensor to take more consistent readings without being interrupted by unnecessary pauses in the code.</p>
 
-        <a href="./files/ultrasonic_sensor.ino" class="download-button">Download Ultrasonic Sensor Code</a>
+        <a href="./files/ultrasonic_sensor.ino" class="download-button pink">Download Ultrasonic Sensor Code</a>
 
         <h2>Reading Results</h2>
         <p>The results from the ultrasonic sensor were mostly accurate once I got the code working properly. As shown in the video, the distance readings decreased as I moved my hand closer to the sensor: the initial distance was approximately 6.4 cm, and the final distance was around 3.88 cm. The readings consistently decreased as I moved my hand toward the sensor, confirming that the ultrasonic distance sensor was functioning as expected. The live plot visualization also made it easier to track changes in real time and verify accuracy.</p>
@@ -119,7 +154,7 @@
         <p>Discharging the Capacitor: The pin is set to LOW, allowing the capacitor to discharge before the next reading.</p>
         <p>I ran this cycle repeatedly to gather a dataset of readings and then averaged them to smooth out any noise.</p>
 
-        <a href="./files/capacitor_sensor.ino" class="download-button">Download Capacitive Sensor Code</a>
+        <a href="./files/capacitor_sensor.ino" class="download-button rainbow">Download Capacitive Sensor Code</a>
 
         <h2>Results and Observations</h2>
         <p>I'll admit the results weren't particularly reliable, and I haven't found a way to convert them into any standard unit of measurement for capacity. However, I did notice a clear correlation between the amount of water in the cup and the readings from the capacitive sensor, which was definitely cool!</p>
