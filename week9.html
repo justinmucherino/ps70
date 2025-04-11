@@ -43,17 +43,89 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        /* New styles */
+        .subtitle {
+            font-size: 1.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .download-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            animation: rainbow 5s infinite;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        @keyframes rainbow {
+            0% { background-color: #ff0000; }
+            17% { background-color: #ff8000; }
+            33% { background-color: #ffff00; }
+            50% { background-color: #00ff00; }
+            67% { background-color: #0000ff; }
+            83% { background-color: #8000ff; }
+            100% { background-color: #ff0000; }
+        }
+
+        video {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 20px auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Week 9</h1>
+        <h1>Week 9 – Radio, WiFi, Bluetooth</h1>
         
-        <!-- Add your content here -->
-        <p>This week's content will go here...</p>
+        <div class="subtitle">"The Internet of Toots"</div>
 
-        <!-- Image placeholder -->
-        <!-- <img src="images/week9/your-image.jpg" alt="Week 9 Project"> -->
+        <p>This week was all about networking. The assignment: work in a group of up to three to program one or more microcontrollers to obtain and respond to information via the internet or radio.</p>
+
+        <p>Naturally, we took this opportunity to do something both educational and profoundly ridiculous.</p>
+
+        <p>We began with a simple setup inspired by class: a local area network service using the ESP32 microcontroller and a standard example from the Arduino IDE. We hosted a basic HTML page locally that let us toggle an LED on and off via a web button. It was simple, satisfying, and a great way to get familiar with WiFi control through a browser.</p>
+
+        <video controls>
+            <source src="./video/led.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <p>But of course, we couldn't stop there.</p>
+
+        <p>We wanted to push things further—riffing through different ideas until we landed on something wonderful: creating a locally hosted LAN interface that could play a selection of the juiciest, most carefully curated flatulence sounds in existence. The dream? A web-controlled Internet of Toots device.</p>
+
+        <p>For this, we used an ESP32 microcontroller paired with a DFPlayer Mini. We uploaded a test MP3 to a FAT32-formatted microSD card, inserted it into the DFPlayer, wired up the system, and edited our code to recognize and interface with the DFPlayer. The goal was for the ESP32 to play specific audio files when buttons were pressed on our locally hosted webpage.</p>
+
+        <p>This is where the dream hit a bump.</p>
+
+        <img src="./images/trouble.jpg" alt="Troubleshooting setup">
+
+        <p>We ran into a slew of issues getting the ESP32 to actually communicate with the DFPlayer. Despite rewiring the setup multiple times, double-checking our formatting, and troubleshooting our code from all angles, the DFPlayer simply refused to behave. Initially, we suspected a formatting issue with the SD card, but even after confirming FAT32 and proper file names, the playback still failed.</p>
+
+        <p>After an absurd amount of debugging, we discovered that the ESP32 and DFPlayer Mini are notoriously finicky when it comes to working together. Compatibility issues, strange timing bugs, voltage quirks—you name it. In the end, we realized we wouldn't be able to fully resolve the connection issue in time for the assignment deadline so our significant efforts would have to suffice… for now!</p>
+
+        <p>So, presently, our progress includes a working web-based LED control system and a wired setup intended for audio playback that—while not functional yet—has a solid foundation for future improvement. It's not quite the Internet of Toots we dreamed of… but it's close.</p>
+
+        <img src="./images/layout.jpg" alt="Project layout">
+
+        <p>Below is a photo of our current setup.</p>
+
+        <img src="./images/system.jpg" alt="System setup">
+
+        <p>Also, here's the current iteration of our code:</p>
+
+        <a href="./download/wifart.ino" class="download-btn">WiFart Code</a>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
