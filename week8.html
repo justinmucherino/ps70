@@ -43,17 +43,72 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        .download-button {
+            background-size: 200% 200%;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Week 8</h1>
         
-        <!-- Add your content here -->
-        <p>This week's content will go here...</p>
+        <h2 style="font-weight: bold;">CNC + Molding & Casting Week</h2>
+        
+        <p style="font-size: 1.2em; font-weight: bold;">"Made on Earth by Justin"</p>
 
-        <!-- Image placeholder -->
-        <!-- <img src="images/week8/your-image.jpg" alt="Week 8 Project"> -->
+        <p>For this week's assignment, we had two parts: first, design and fabricate something using the CNC machine, and second, post-process that design using an additional fabrication technique such as molding and casting, vacuum forming, or working with composites.</p>
+
+        <p>Inspired by Toy Story and the spirit of childhood creativity, I decided to make a custom stamp for the bottom of my final project—or, honestly, for anything I end up making in this class or beyond. The stamp reads: "Made on Earth by Justin," because, well, it was made on Earth… by me… Justin.</p>
+
+        <div style="width: 100%; height: 500px;">
+            <iframe id="vs_iframe" src="https://www.viewstl.com/?embedded&url=justinmucherino.github.io%2Fps70%2Fimages%2Fmadeonearth.stl&color=red&bgcolor=azure" style="border:0;margin:0;width:100%;height:100%;"></iframe>
+        </div>
+
+        <div style="text-align: center; margin: 20px 0;">
+            <a href="./download/madeonearth.stl" class="download-button" style="
+                padding: 10px 20px;
+                text-decoration: none;
+                border-radius: 5px;
+                font-weight: bold;
+                background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+                color: white;
+                animation: rainbow 5s linear infinite;">
+                Download STL File
+            </a>
+        </div>
+
+        <p>First I selected the appropriate settings, secured the wax to the cutting bed, and zeroed the X, Y, and Z axes.</p>
+
+        <img src="./images/roland.jpg" alt="Roland CNC Machine">
+
+        <p>Then, the magic began. I used a 1/8" flat endmill for the rough cut to clear out the bulk of the material, followed by a 1/16" bit to carve the finer details of the lettering. I did run into an issue where the software didn't want to cut the text because the letters were too narrow. With some helpful advice from Wyatt, I tricked the software into accepting the 1/16" bit by pretending it was a 1/32" bit. The carve came out beautifully, and in under an hour, I had a clean wax mold of my design, complete with a frame to hold the casting material.</p>
+
+        <video width="100%" controls>
+            <source src="./video/cut.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <p>With the CNC portion done, I moved on to molding and casting. I mixed equal parts of the A and B components of a firm silicone rubber and carefully poured the mixture into my wax mold.</p>
+
+        <video width="100%" controls>
+            <source src="./video/silicone.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <p>To prevent bubbles from ruining the detail in the letters, I used a thin piece of wood to gently lift out trapped air and gave the mold a few light taps to release any hidden ones. After setting it aside for a few hours to cure, I peeled out a flawless silicone mold of my stamp.</p>
+
+        <img src="./images/waxmold.jpg" alt="Wax Mold">
+
+        <p>I was really happy with the material choice—the silicone popped out easily and didn't need any post-processing. To finish things off, I 3D printed a small rectangular base and superglued the silicone onto it to create a sturdy, reusable stamp.</p>
+
+        <p>And just like that—BAM! I've got a functional stamp that marks my projects with the proud (and slightly cheeky) declaration: "Made on Earth by Justin."</p>
+
+        <img src="./images/stamp.jpg" alt="Final Stamp">
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
