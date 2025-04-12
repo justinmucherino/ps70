@@ -55,26 +55,16 @@
         .download-btn {
             position: relative;
             display: inline-block;
-            padding: 10px 20px;
+            padding: 15px 30px;
             background-color: #4CAF50;
+            background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg"><text x="0" y="15" font-size="15" opacity="0.4" transform="rotate(-30)" fill="white">💩</text></svg>');
+            background-size: 40px 40px;
+            background-repeat: repeat;
             color: white;
             text-decoration: none;
             border-radius: 5px;
             margin: 10px;
-            overflow: hidden;
-        }
-
-        .download-btn::before {
-            content: "💩 💩 💩 💩 💩 💩";
-            position: absolute;
-            font-size: 20px;
-            opacity: 0.4;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) rotate(-30deg);
-            pointer-events: none;
-            white-space: nowrap;
-            z-index: -1;
+            font-weight: bold;
         }
 
         .watermark {
@@ -151,10 +141,7 @@
         <p>Also, here's the current iteration of our code:</p>
 
         <div style="text-align: center;">
-            <a href="./download/wifart.ino" class="download-btn">
-                <span class="watermark">💩</span>
-                WiFart Code
-            </a>
+            <a href="./download/wifart.ino" class="download-btn">WiFart Code</a>
         </div>
 
         <a href="index.html" class="back-link">← Back to Home</a>
