@@ -66,7 +66,9 @@
         <h3>Chassis</h3>
         <p>The mechanical assembly started with 3D printing custom mounts to hold the mirrors, which we then attached to the servo horns. We designed a simple wooden structure to serve as the backbone of the build, providing a sturdy and clean framework to mount all the components. The laser pointer was fixed to the base and aimed at the first mirror, with the second mirror handling the final redirection onto the drawing surface. We carefully aligned both mirrors to minimize angular distortion and ensure the laser beam reflected smoothly across both axes. For wiring, we connected each servo to the appropriate pins on the ESP32 and used an external power supply to avoid overloading the board.</p>
 
-        <iframe id="vs_iframe" src="https://www.viewstl.com/?embedded&url=http%3A%2F%2Fjustinmucherino.github.io%2Fps70%2Fimages%2Fmirrorholder.stl&color=gray&orientation=front" style="border:0;margin:0;width:100%;height:500px;"></iframe>
+        <div style="text-align: center; margin: 40px 0;">
+            <iframe id="vs_iframe" src="https://www.viewstl.com/?embedded&url=http%3A%2F%2Fjustinmucherino.github.io%2Fps70%2Fimages%2Fmirrorholder.stl&color=gray&orientation=front" style="border:0;margin:0;width:50%;height:500px;"></iframe>
+        </div>
 
         <h3>Microcontroller Programming</h3>
         <p>For the programming side, we started with a basic example sketch and then added our own tweaks to scale the laser movement to fit the dimensions and motion range of our machine. The core of the code takes in X and Y coordinate values and uses trigonometry to convert them into servo angles, giving us accurate control of where the laser points. One important part of the setup was calibration — we built in a homing routine that reset both servos to fixed angles every time the system was powered on. That made sure the laser always started from the same spot. We also added physical stops to help reinforce that consistency.</p>
