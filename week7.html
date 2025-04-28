@@ -43,14 +43,49 @@
         .back-link:hover {
             text-decoration: underline;
         }
+
+        /* Add new styles for button and video */
+        .download-btn {
+            background-color: pink;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            margin: 20px 0;
+        }
+
+        .download-btn:hover {
+            opacity: 0.8;
+        }
+
+        video {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px auto;
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Week 7</h1>
+        <h1>Week 7: Minimum Viable Product</h1>
         
-        <!-- Add your content here -->
-        <p>This week's content will go here...</p>
+        <video controls>
+            <source src="./video/mvp.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div style="text-align: center;">
+            <a href="./files/box_code_v1_led_OLED.ino" class="download-btn">Code!</a>
+        </div>
+
+        <p>This week we were tasked with making a serious attempt at the most challenging / intimidating aspect of our final project.</p>
+
+        <p>The bedside lock box is, in its present form, nothing more than a bread-boarded bundle of components: a reed switch that senses when the lid would open, a passive piezo buzzer that howls at 2.5 kHz, an LED that changes blink-rate, and a tiny OLED that prints "BOX IS OPEN!" or "Box is shut." That simplicity is intentional. I wanted to prove the backbone of the final product—the sensing, timing, and feedback loop—before investing time in hinges, magnets, and a nice enclosure.</p>
 
         <!-- Image placeholder -->
         <!-- <img src="images/week7/your-image.jpg" alt="Week 7 Project"> -->
