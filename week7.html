@@ -87,8 +87,25 @@
 
         <p>The bedside lock box is, in its present form, nothing more than a bread-boarded bundle of components: a reed switch that senses when the lid would open, a passive piezo buzzer that howls at 2.5 kHz, an LED that changes blink-rate, and a tiny OLED that prints "BOX IS OPEN!" or "Box is shut." That simplicity is intentional. I wanted to prove the backbone of the final product—the sensing, timing, and feedback loop—before investing time in hinges, magnets, and a nice enclosure.</p>
 
-        <!-- Image placeholder -->
-        <!-- <img src="images/week7/your-image.jpg" alt="Week 7 Project"> -->
+        <p>In the finished version this core will sit inside a 3-D-printed enclosure, pair over Bluetooth to a bedside alarm clock that shows the actual time, and (if I choose at bedtime) drive a small servo that throws a physical latch. But first the electronics had to be bullet-proof.</p>
+
+        <p>I began by wiring the reed switch to an ESP32's GPIO 5 and the piezo to GPIO 4, aiming for an "instant" alarm.</p>
+
+        <p>At first it only gave a single weak chirp—so I taught the code to ignore the tiny "bounce" the switch makes and to keep the alarm blaring for a full minute. The sound also lagged at first, so I gave the speaker a quick practice beep when the box powers up; now it's ready to scream the instant the lid moves.</p>
+
+        <p>Next I added a status light: it blinks slowly when everything is fine and goes into rapid-fire panic mode when I open the box.</p>
+
+        <p>Finally, I plugged in a little screen and had it shout "BOX IS OPEN!" or quietly reassure me with "Box is shut" so I don't have to interpret the blinking light. Each change fixed one annoyance, and by the end the whole thing felt snappy and good to go—exactly the backbone I need before worrying about everything else I plan to build on top of it.</p>
+
+        <p>Everything still lives on a breadboard—no box yet—because it is far easier to shuffle pins, swap parts, and rewrite code on an open bench than inside a sealed enclosure.</p>
+
+        <p>With the backbone working I can turn to the next phase: designing and iterating the case itself. That means choosing a hinge style that aligns the magnet perfectly with the reed switch, adding a slot for constant 3 v power, creating a tidy path for the phone's charging cable, and generally making the object look like something worthy of a night-stand instead of a science-fair prototype.</p>
+
+        <p>While I refine the shell I will also prototype the Bluetooth-linked alarm-clock module and test a micro-servo latch so I can decide, each night, whether I want the box merely to shame me or to lock me in completely.</p>
+
+        <p>For the Minimum-Viable-Product check-point, the system does exactly what it must: the moment the "lid" departs, the buzzer howls, the LED strobe rate jumps, and the OLED shouts at me—then everything quiets after a full minute or the instant I close the lid.</p>
+
+        <p>This reliable backbone now gives me a solid foundation to build the mechanical shell, add the Bluetooth clock, and experiment with mechanical locking, power management, and aesthetics in the final phase.</p>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
