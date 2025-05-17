@@ -80,7 +80,9 @@
             <li>Hack-friendly: everything open, cheap, and easy to iterate.</li>
         </ul>
 
-        <p>The bedside lock box is, in its present form, nothing more than a bread-boarded bundle of components: a reed switch that senses when the lid would open, a passive piezo buzzer that howls at 2.5 kHz, an LED that changes blink-rate, and a tiny OLED that prints "BOX IS OPEN!" or "Box is shut." That simplicity is intentional. I wanted to prove the backbone of the final product—the sensing, timing, and feedback loop—before investing time in hinges, magnets, and a nice enclosure.</p>
+        <h2>Proving the Electronics Backbone</h2>
+        
+        <p>The box is, in its present form, nothing more than a bread-boarded bundle of components: a reed switch that senses when the lid would open, a passive piezo buzzer that howls at 2.5 kHz, an LED that changes blink-rate, and a tiny OLED that prints "BOX IS OPEN!" or "Box is shut." That simplicity is intentional. I wanted to prove the backbone of the final product—the sensing, timing, and feedback loop—before investing time in hinges, magnets, and a nice enclosure.</p>
 
         <p>In the finished version this core will sit inside a 3-D-printed enclosure, pair over Bluetooth to a bedside alarm clock that shows the actual time, and (if I choose at bedtime) drive a small servo that throws a physical latch. But first the electronics had to be bullet-proof.</p>
 
@@ -102,7 +104,7 @@
 
         <p>This reliable backbone now gives me a solid foundation to build the mechanical shell, add the Bluetooth clock, and experiment with mechanical locking, power management, and aesthetics in the final phase.</p>
 
-        <video controls style="width: 50%; margin: 20px auto; display: block;">
+        <video controls style="width: 70%; margin: 20px auto; display: block;">
             <source src="./video/mvp.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
@@ -131,7 +133,50 @@
 
         <img src="./images/boxv2.jpg" alt="Final box version" style="width:85%;margin:20px auto;">
 
-        <p>Next steps are to embed brass heat-set inserts for the lid rails, mount the electronics in their bays, and start dressing the cable runs so everything looks intentional instead of improvised. With the enclosure now physically in hand—and big enough to do the job—I can spend the remaining weeks in the the remaining aspects of this build.</p>
+        <p>Next steps are to embed heat-set inserts for the lid rails, mount the electronics in their bays, and start dressing the cable runs so everything looks intentional instead of improvised. With the enclosure now physically in hand—and big enough to do the job—I can spend the remaining weeks in the the remaining aspects of this build.</p>
+
+        <p>With the enclosure printed and the electronic guts mostly good to go now it's time to start putting it all together and making any necessary small tweaks and add on's as we see fit.</p>
+
+        <p>First, I modeled the housing for the LCD screen. I wanted the pocket to cradle the display at the perfect depth, so the bezel would sit flush while the lip on the rear snapped into the PLA cut-out and held the board firmly without screws or glue.</p>
+
+        <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+            <img src="./images/lcdhousing.jpg" alt="LCD Housing" style="width: 48%;">
+            <img src="./images/lcdhousing2.jpg" alt="LCD Housing 2" style="width: 48%;">
+        </div>
+
+        <p>Next came mounting the servo on the opposite wall. When I dry-fit the stock SG-90 arms, I realized they were nowhere near long enough to span the gap between the fixed wall and the sliding lid, so I opened Fusion again and sketched a thicker, longer custom horn. With that printed and swapped in, the arm now arcs cleanly over the gap and bites into a matching notch on the lid, giving a satisfyingly tight lock.</p>
+
+        <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+            <img src="./images/servomount.jpg" alt="Servo Mount" style="width: 48%;">
+            <img src="./images/customservoarm.jpg" alt="Custom Servo Arm" style="width: 48%;">
+        </div>
+
+        <p>After the motion hardware was settled, I pressed all three push-buttons into their panel openings, labeled every lead, trimmed the wire bundles, and soldered pin headers so each line clicks neatly into the breadboard without stray strands.</p>
+
+        <img src="./images/front.jpg" alt="Front View" style="width: 85%; margin: 20px auto;">
+
+        <p>I then measured, drilled and mouned the two reed switches—one in the lid, one in the wall—so their magnets align perfectly when the box is closed and never chatter when it's open.</p>
+
+        <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+            <img src="./images/reedswitch1.jpg" alt="Reed Switch 1" style="width: 48%;">
+            <img src="./images/reedswitch2.jpg" alt="Reed Switch 2" style="width: 48%;">
+        </div>
+
+        <p>Going fully portable was next on the list. I chose a 3.7 V 500 mAh Li-Po, a TP4056 charger module, and a tiny boost converter, which together give a solid eight hours of standby. A 1000 µF electrolytic capacitor across the 5 V rail catches the servo's inrush so the ESP32 never browns out. Once the layout felt right, I soldered everything into a tidy, removable harness that slips into one of the service bays.</p>
+
+        <img src="./images/battery.jpg" alt="Battery Setup" style="width: 85%; margin: 20px auto;">
+
+        <p>Next, I tucked every wire run into its channel and cinched the bundles as neatly as I could to prevent anything from coming undone or unplugged.</p>
+
+        <img src="./images/wiring2.jpg" alt="Wiring" style="width: 85%; margin: 20px auto;">
+
+        <p>Finally I used a heat gun to set small magnets into the side panels. Magnets hold the lid shut with a pleasant snap, keep the compartment covers in place without visible screws, and give the whole enclosure the sleek, finished look I was after.</p>
+
+        <img src="./images/magnets.jpg" alt="Magnets" style="width: 85%; margin: 20px auto;">
+
+        <p>With the core timer finished, I moved on to Lock Mode. Holding the white and red buttons together still arms the classic alarm-only countdown, but holding the red and black buttons now arms Lock Mode instead. In that path the servo instantly swings to ninety degrees, dropping its custom horn into the notch I printed in the lid and physically trapping the phone. The buzzer and LED still stand ready to shame me if I pry the lid early, but once the countdown reaches zero the servo glides back to its home angle, the latch clears the slot, and the lid slides freely.</p>
+
+        <p>After a few days of real-world use the box has proved its worth: my nightly doomscrolling has dropped from well over forty minutes to barely three, the LCD countdown gives just the right nudge to obey my own rules, and the servo lock has never jammed thanks to that beefy capacitor on the 5-volt rail. What matters just as much, though, is how much fun this build has been from the first breadboard beep to the final working enclosure. I'm amazed at how much I learned and how awesome it was to watch a pile of loose parts become a working device is addictive. I'm genuinely proud to have built something that solves a real problem for me, and the process has sparked a new passion for making things; the BuzzKill Box won't be my last project, just the springboard for whatever I decide to invent next.</p>
 
         <a href="index.html" class="back-link">← Back to Home</a>
     </div>
