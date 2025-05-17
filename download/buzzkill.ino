@@ -1,9 +1,3 @@
-/*  Doomscroll BuzzKill Box  – v7
- *  Alarm‑Mode (A+B)  •  Lock‑Mode (B+C, servo absolute 90°)
- *  On reboot we capture the servo’s starting angle (homeAngle)
- *  Lock‑Mode drives to 90°; when timer ends, it drives back home.
- */
-
 #include <Arduino.h>
 #include <Wire.h>
 #include <LiquidCrystal_I2C.h>
